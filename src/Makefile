@@ -1,7 +1,7 @@
 # Here is a simple Make Macro.
 LINK_TARGET = ../QUADEXE
 CC				= gcc
-CFLAGS	= -g -Wall
+CFLAGS	= -g
 DEPS = quadratic.h
 
 

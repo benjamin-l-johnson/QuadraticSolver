@@ -9,3 +9,5 @@ tests:
 clean:
 	cd src; make clean
 	rm $(LINK_TARGET)
+debug:
+	cd src; make debug
