@@ -7,8 +7,6 @@ int main(int argc, char **argv)
 	size_t size = 0;
 	double a,b,c,x1,x2, linans;
 
-	char* strA,*strB,*strC,*check;
-
 	switch(argc)
 	{
 		//they entered no command line args
