@@ -14,8 +14,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cunit.h"
-#include "mock_qsolve_sqrt.h"
-#include "qsolve_roots.h"
+#include "mock_calc_quad.h"
+#include "quadratic.h"
 
 
 int main() {
@@ -30,7 +30,7 @@ char	str[100];// messsaage for assert()
 double	d;	 // scratch for discriminate
 double	sqrtd;	 // scratch for sqrt(d) 
 
-fprintf(stderr, "in t2\n" );
+
 // initialize the unit testing framework
 cunit_init();
 

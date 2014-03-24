@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "qsolve_roots.h"
 #include "qsolve_sqrt.h"
-
+#define DEBUG = 1
 //X quadratic eqaution solver
 //X does not check for overflows and underflows.
 

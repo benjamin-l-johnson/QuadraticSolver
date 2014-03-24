@@ -5,7 +5,8 @@ int main(int argc, char **argv)
 	//printf("%d\n", argc );
 	char * input;
 	size_t size = 0;
-	double a,b,c,x1,x2, linans;
+	double a,b,c,d,x1,x2, linans;
+	double abc[3];
 
 	switch(argc)
 	{
@@ -13,16 +14,17 @@ int main(int argc, char **argv)
 		case 1:
 			printf("Enter Variables a b and c in a space seprated string\n");
 			getline(&input,&size,stdin);
-			if(sscanf(input, "%lf %lf %lf\n",&a,&b,&c) != 3)
+			if(validate_input(input,abc))
 			{
 				fprintf(stderr, "incorrect args \n");
 				exit(0);
 			}
 			printf("%s\n",input);
 			break;
+
 		//they entered one large string 
 		case 2:
-			if(sscanf(argv[1], "%lf %lf %lf\n",&a,&b,&c) != 3)
+			if(validate_input(argv[1],abc))
 			{
 				fprintf(stderr, "incorrect args \n");
 				exit(0);
@@ -30,38 +32,56 @@ int main(int argc, char **argv)
 
 			break;
 
-		//they entered three command line args
-		case 4:
-			a = string_to_double(argv[1]);
-			b = string_to_double(argv[2]);
-			c = string_to_double(argv[3]);
-			break;
-
 		default:
-			fprintf(stderr, "command unknown");
+			fprintf(stderr, "Unkown variable input");
 			exit(0);
 			break;
 	}
 
+	a = abc[0];
+	b = abc[1];
+	c = abc[2];
+	
+	d = calc_determ(abc);
 
 	if (a==0)
 	{
-		printf("Variable a is zero, this is a linear equation\n");
+		printf("Variable A is zero, this is a linear equation\n");
 		linans=(0-c)/b;
 		printf("x=%.8lf\n", linans);
 	}
-	else	
+	else if(d==0)
+	{	
+			printf("roots are equal\n");
+     		x1=-b/(2.0*a);
+     		x2=x1;
+     		printf("First  Root x1= %f\n",x1);
+     		printf("Second Root x2= %f\n",x2);
+
+	}
+   	else if(d>0)
 	{
-		if(((b*b)-4*(a*c))>=0)
-		{	
-			x1=(calc_quad(a,b,c));
-			x2=(calc_quad(a,b,c));
-			printf("x1=%.8lf\n", x1);
-			printf("x2=%.8lf\n", x2);
-		}
-	
-	  	else
-	  		printf("Answer is not a real solution, but rather a complex solution\n");
+  		printf("Roots are real\n");
+		x1=(calc_quad(a,b,c));
+		x2=(calc_quad(a,0-b,c));
+
+		printf("x1=%.8lf\n", x1);
+		printf("x2=%.8lf\n", x2);
+	}
+	else
+	{
+   		printf("Root are imeginary\n No Solution \n");
   	}
+	return 0;
+}
+
+int validate_input(char *input, double *abc)
+{
+	
+	if(sscanf(input, "%lf %lf %lf\n",&abc[0],&abc[1],&abc[2]) != 3)
+	{
+		return -1;
+	}
+
 	return 0;
 }

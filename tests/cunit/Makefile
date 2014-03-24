@@ -38,8 +38,8 @@ qsolve: qsolve_interface.o qsolve_roots.o qsolve_sqrt.o
 	${CC} -o qsolve qsolve_interface.o qsolve_roots.o qsolve_sqrt.o ${LIBS}
 
 test: t1 t2
-	t1
-	t2
+	./t1
+	./t2
 
 t1: t1.o qsolve_roots.o qsolve_sqrt.o cunit.o 
 	${CC} -o t1 t1.o qsolve_roots.o qsolve_sqrt.o cunit.o ${LIBS}
@@ -68,4 +68,4 @@ unit_tests.tar: ${SRC}
 	tar cvf unit_tests.tar ${SRC}
 
 clean:
-	-rm -f ${EXES} core *.log *.o *.exe qsolve t1 *.tar
+	-rm -f ${EXES} core *.log *.o *.exe qsolve t1 t2 *.tar
