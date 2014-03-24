@@ -29,7 +29,6 @@ int main(int argc, char **argv)
 				fprintf(stderr, "incorrect args \n");
 				exit(0);
 			}
-
 			break;
 
 		default:
@@ -63,7 +62,7 @@ int main(int argc, char **argv)
 	{
   		printf("Roots are real\n");
 		x1=(calc_quad(a,b,c));
-		x2=(calc_quad(a,0-b,c));
+		x2=(calc_quad(a,-b,c));
 
 		printf("x1=%.8lf\n", x1);
 		printf("x2=%.8lf\n", x2);
