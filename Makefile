@@ -9,11 +9,7 @@ tests:
 clean:
 	cd src; make clean
 	rm $(LINK_TARGET)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> testing
+	
 debug:
 	cd src; make debug
 
