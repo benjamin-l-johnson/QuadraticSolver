@@ -53,7 +53,7 @@ assert_feq("x1",abc[1],3.0);
 assert_feq("x2",abc[2],1.0);
 //
 ret= mock_check_calc_quad(&count, &x);
-fprintf(stderr, "%d\n",ret );
+// fprintf(stderr, "%d\n",ret );
 snprintf(str, 99, "count ret = %d x =%20.61e", count, x);
 assert_eq(str, ret , 1);
 
