@@ -11,3 +11,6 @@ clean:
 	rm $(LINK_TARGET)
 debug:
 	cd src; make debug
+
+run:
+	./$(LINK_TARGET)

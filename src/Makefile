@@ -2,12 +2,12 @@
 LINK_TARGET = ../QUADEXE
 CC				= gcc
 CFLAGS	= -g
-DEPS = quadratic.h
+DEPS = calc_quad.h
 
 
-MAIN = quadratic.c
+MAIN = calc_main.c
 
-SRCS = $(MAIN) quadlow.c quadmid.c 
+SRCS = $(MAIN) calc_quad.c calc_utils.c 
 OBJS	= ${SRCS:.c=.o}
 
 

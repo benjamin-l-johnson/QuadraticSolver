@@ -1,4 +1,4 @@
-#include "quadratic.h"
+#include "calc_quad.h"
 
 double sqrt_calc(double num)
 {

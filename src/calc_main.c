@@ -1,4 +1,11 @@
-#include "quadratic.h"
+#include "calc_quad.h"
+
+
+//This is a main interface class
+//
+//
+//
+
 
 int main(int argc, char **argv)
 {	
@@ -37,52 +44,10 @@ int main(int argc, char **argv)
 			break;
 	}
 
-	a = abc[0];
-	b = abc[1];
-	c = abc[2];
-	
-	d = calc_determ(abc);
-
-	if (a==0)
-	{
-		printf("Variable A is zero, this is a linear equation\n");
-		linans=(0-c)/b;
-		printf("x=%.8lf\n", linans);
-	}
-	else if(d==0)
-	{	
-			printf("roots are equal\n");
-     		x1=-b/(2.0*a);
-     		x2=x1;
-     		printf("First  Root x1= %f\n",x1);
-     		printf("Second Root x2= %f\n",x2);
-
-	}
-   	else if(d>0)
-	{
-  		printf("Roots are real\n");
-		x1=(calc_quad(a,b,c));
-		x2=(calc_quad(a,-b,c));
-
-		printf("x1=%.8lf\n", x1);
-		printf("x2=%.8lf\n", x2);
-	}
-	else
-	{
-   		printf("Root are imeginary\n No Solution \n");
-  	}
+	//
+	calc_quad(abc);
+	LOG_MSG("Return code=%lf,x1=%lf,x2=%lf",abc[0],abc[1],abc[2]);
 	return 0;
 }
 
 
-//Returns -1 upon too much input
-int validate_input(char *input, double *abc)
-{
-	
-	if(sscanf(input, "%lf %lf %lf\n",&abc[0],&abc[1],&abc[2]) != 3)
-	{
-		return -1;
-	}
-
-	return 0;
-}
