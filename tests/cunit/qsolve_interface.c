@@ -25,7 +25,7 @@ typedef struct {
 int validator_abc(Line *linein, Coef *coef);
 
 int main() {
-char	response[3];// User response: "Y" or "N"
+char	response[2];// User response: "Y" or "N"
 Line	linein;     // input line from user
 Coef	coef;       // coefs of the quadratic (3 doubles), passed to qsolve
 Root    root;       // roots of the quadratic (2 doubles), returned from qsolve()
@@ -38,22 +38,32 @@ if( (linein.str = malloc(NLINE)) == NULL)  {
 }
 linein.len=0;
 linein.code=-1;
-linein.str= '\0';
+//linein.str= NULL;
 
 printf("Quadratic Equation Solver, Ver 1.01\nFinds real roots of a quadratic equation.\n");
 
 while(1) {
   while(1) {
     printf("Do you want to solve a quadratic eqauation ax^2 + bx + c = 0 ? (Y/N):");
-    if(fgets(response, 2, stdin) == NULL) {
+    if(fgets((char *)&response, 4, stdin)==NULL) 
+    {
      fprintf(stderr,"Input error: can not read from stdin\n");
      exit(1);
     }
-    if(strncmp(response, "Y", 3) ) {
+    if(strncmp(&response[0], "Y", sizeof(char)*2)) 
+    {
+      fprintf(stderr, "%s\n",response );
       break;
-    } else if(strncmp(response, "N", 3) ) {
+    } 
+    else if(strncmp(&response[0], "N", sizeof(char)*2) ) 
+    {
+      
+      fprintf(stderr, "In N:%s\n",&response[0] );
+
       exit(0);
-    } else {
+    } 
+    else 
+    {
       fprintf(stderr,"Input error: response must be a single character: Y or N\n"); 
     }
   }
@@ -96,7 +106,8 @@ int validator_abc(Line *linein, Coef *coef) {
 double  a,b,c;
 char    ch;
 
-if(sscanf(linein->str,"%lf %lf %lf%c", &a, &b, &c, &ch) != 3) {
+fprintf(stderr, "%s\n",linein->str);
+if(sscanf(linein->str,"%lf %lf %lf\n", &a, &b, &c) != 3) {
   return -1;
 }
 coef->a = a;
