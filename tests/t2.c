@@ -15,12 +15,11 @@
 #include <stdlib.h>
 #include "cunit.h"
 #include "mock_calc_quad.h"
-#include "quadratic.h"
+
 
 
 int main() {
-Coef	coefs;   // a, b and c for the quadratic eqaution
-Root	roots;   // Root struct with x1 and x1
+
 int	ret;     // return value from qsolve_roots
 double  a, b, c; // scratch variables
 double  x1, x2;  // scratch variables
@@ -41,19 +40,19 @@ cunit_init();
 //  In this special case we will ytry to have the error actually == 0.0.,
 //  both in the qsove_sqrt(I) mock object and for the returned roots!
 //  This is not often the case.
-mock_calc_quad( 4.0, 2.0, 0.0);
+mock_setup_calc_quad( 4.0, 2.0, 0.0);
 //
 //// This looks like a check of qsolve_sqart()
 abc[0] = 1.0;
 abc[1] = -4.0;
 abc[2] = 3.0;
 
-abc = qsolve_roots(abc);
+calc_quad(abc);
 assert_eq("ret",abc[0],2);
 assert_feq("x1",abc[1],3.0);
 assert_feq("x2",abc[2],1.0);
 //
-ret= mock_check_qsolve_sqrt( &count, &x);
+ret= mock_check_calc_quad(&count, &x);
 snprintf(str, 99, "count ret = %d x =%20.61e", count, x);
 assert_eq(str, ret , 1);
 

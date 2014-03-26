@@ -14,8 +14,10 @@ double* calc_quad(double *abc)
 {
 	double x1,x2,d=0;
 	d = calc_determ(abc);
-	LOG_MSG("hi");
-	
+	//LOG_MSG("hi");
+			LOG_MSG("d = %lf",d);
+
+
 	if (abc[0]==0)
 	{
 		printf("Variable A is zero, this is a linear equation\n");
@@ -42,7 +44,7 @@ double* calc_quad(double *abc)
 		x2= (-abc[1] - sqrt_calc( d ) ) / ( 2 * abc[0] ); 
 
 		abc[0] = 2;
-		abc[1]= x1;
+		abc[1]=x1;
 		abc[2]=x2;
 		return abc;
 

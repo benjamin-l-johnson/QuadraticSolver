@@ -2,7 +2,7 @@
 
 #include <math.h>
 #include "mock_calc_quad.h"
-#include "calc_quad.h"
+#include "../src/calc_quad.h"
 
 
 static double x     = -1.0;  

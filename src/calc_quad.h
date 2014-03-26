@@ -13,8 +13,5 @@
 #endif
 
 double* calc_quad(double*);
-double sqrt_calc(double);
-double string_to_double(char*);
-double test_nan(double);
 int validate_input(char*,double*);
 double calc_determ(double*);

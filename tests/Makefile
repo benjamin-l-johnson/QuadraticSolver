@@ -2,12 +2,12 @@
 LINK_TARGET = tests
 CC				= gcc
 CFLAGS	= -g
-DEPS = calc_quad.h
+DEPS = ../src/calc_quad.h cunit.h 
 
 
-MAIN = calc_main.c
+MAIN = t2.c
 
-SRCS = $(MAIN) calc_quad.c calc_utils.c 
+SRCS = $(MAIN) ../src/calc_quad.c mock_calc_quad.c cunit.c
 OBJS	= ${SRCS:.c=.o}
 
 

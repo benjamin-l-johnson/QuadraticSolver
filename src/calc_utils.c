@@ -1,4 +1,4 @@
-#include "calc_quad.h"
+#include "calc_utils.h"
 
 double sqrt_calc(double num)
 {
@@ -24,14 +24,3 @@ double test_nan(double a)
 	}
 }
 
-//Returns -1 upon too much input
-int validate_input(char *input, double *abc)
-{
-	
-	if(sscanf(input, "%lf %lf %lf\n",&abc[0],&abc[1],&abc[2]) != 3)
-	{
-		return -1;
-	}
-
-	return 0;
-}
