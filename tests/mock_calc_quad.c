@@ -21,7 +21,7 @@ count = 0;
 flag=0;
 }
 
-double calc_quad(double lx) { 
+double sqrt_calc(double lx) { 
 if(fabs(ex- lx) > eps) {
   flag=1;
 }

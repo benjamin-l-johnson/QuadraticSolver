@@ -29,7 +29,7 @@ double	x;	 // arguement passed to qsolve_sqrt()
 char	str[100];// messsaage for assert() 
 double	d;	 // scratch for discriminate
 double	sqrtd;	 // scratch for sqrt(d) 
-
+double abc[3]={0,0,0};
 
 // initialize the unit testing framework
 cunit_init();
@@ -41,16 +41,17 @@ cunit_init();
 //  In this special case we will ytry to have the error actually == 0.0.,
 //  both in the qsove_sqrt(I) mock object and for the returned roots!
 //  This is not often the case.
-mock_setup_qsolve_sqrt( 4.0, 2.0, 0.0);
+mock_calc_quad( 4.0, 2.0, 0.0);
 //
 //// This looks like a check of qsolve_sqart()
-coefs.a = 1.0;
-coefs.b = -4.0;
-coefs.c = 3.0;
-ret = qsolve_roots(&coefs, &roots);
-assert_eq("ret",ret,2);
-assert_feq("x1",roots.x1,3.0);
-assert_feq("x2",roots.x2,1.0);
+abc[0] = 1.0;
+abc[1] = -4.0;
+abc[2] = 3.0;
+
+abc = qsolve_roots(abc);
+assert_eq("ret",abc[0],2);
+assert_feq("x1",abc[1],3.0);
+assert_feq("x2",abc[2],1.0);
 //
 ret= mock_check_qsolve_sqrt( &count, &x);
 snprintf(str, 99, "count ret = %d x =%20.61e", count, x);
@@ -62,7 +63,7 @@ assert_eq(str, ret , 1);
 // qsolve_roots() passes this one. ;-)
 // This allows about one base 10 least significant digit of error
 // (x - x1)*(x - x2) = 0
-x1 = 3.1;
+/*x1 = 3.1;
 x2 = 3.3;
 a = coefs.a = 1.0;
 b = coefs.b = -x1 + -x2;
@@ -81,7 +82,7 @@ assert_feqrerr("x2",roots.x2, x1, 2.0*cunit_dmacheps*3.1 );
 //
 ret= mock_check_qsolve_sqrt( &count, &x);
 snprintf(str, 99, "count ret = %d x =%20.61e", count, x);
-assert_eq(str, ret , 1);
+assert_eq(str, ret , 1);*/
 
 exit(0);
 }
