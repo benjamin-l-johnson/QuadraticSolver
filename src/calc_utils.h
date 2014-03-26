@@ -1,8 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <math.h>
-#include <ctype.h>
+#include <stdlib.h>
 
 double sqrt_calc(double);
 double string_to_double(char*);
