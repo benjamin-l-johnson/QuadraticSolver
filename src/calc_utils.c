@@ -2,6 +2,7 @@
 
 double sqrt_calc(double num)
 {
+	fprintf(stderr, "%s\n","I got called" );
 	return sqrt(num);
 }
 
