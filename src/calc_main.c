@@ -1,5 +1,5 @@
 #include "calc_quad.h"
-
+#include "calc_utils.h"
 
 //This is a main interface class
 //

@@ -1,4 +1,6 @@
 #include "calc_quad.h"
+#include "calc_utils.h"
+
 
 //The calc_quad class takes a 
 //pointer to an array of 3 doubles
@@ -17,7 +19,7 @@ double* calc_quad(double *abc)
 	x2=0;
 	d = calc_determ(abc);
 	//LOG_MSG("hi");
-			LOG_MSG("d = %lf",d);
+	//LOG_MSG("d = %lf",d);
 
 
 	if (abc[0]==0)

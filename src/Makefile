@@ -2,7 +2,7 @@
 LINK_TARGET = ../QUADEXE
 CC				= gcc
 CFLAGS	= -g
-DEPS = calc_quad.h
+DEPS = calc_quad.h calc_utils.h
 
 
 MAIN = calc_main.c
@@ -18,6 +18,9 @@ $(LINK_TARGET) : $(OBJS)
 
 %.o: %.c
 	gcc $(CFLAGS) -c $*.c -o $*.o 
+
+
+calc_quad.c: calc_utils.h
 
 debug :
 	gdb $(LINK_TARGET)
