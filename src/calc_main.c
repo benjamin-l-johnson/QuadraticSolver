@@ -74,6 +74,8 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+
+//Returns -1 upon too much input
 int validate_input(char *input, double *abc)
 {
 	
