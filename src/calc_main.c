@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {	
-	
+	//printf("%d\n", argc );
 	char * input;
 	size_t size = 0;
 	double a,b,c,d,x1,x2, linans;
@@ -39,14 +39,15 @@ int main(int argc, char **argv)
 			break;
 
 		default:
-			fprintf(stderr, "Unknown variable input");
+			fprintf(stderr, "Unkown variable input");
 			exit(0);
 			break;
 	}
 
 	//
 	calc_quad(abc);
-	
+	//LOG_MSG("Return code=%lf,x1=%lf,x2=%lf",abc[0],abc[1],abc[2]);
+	fprintf(stdout, "x1=%lf,x2=%lf\n",abc[0],abc[1],abc[2]);
 	return 0;
 }
 
